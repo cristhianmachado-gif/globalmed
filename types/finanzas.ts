@@ -209,7 +209,7 @@ export interface DashboardFinanciero {
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 
-export const FORMA_PAGO_LABEL: Record<FormaPago, string> = {
+export const FORMA_PAGO_LABEL: { [key: string]: string } = {
   efectivo: 'Efectivo',
   transferencia: 'Transferencia',
   tarjeta: 'Tarjeta',
@@ -217,34 +217,34 @@ export const FORMA_PAGO_LABEL: Record<FormaPago, string> = {
   debito_automatico: 'Débito automático',
 }
 
-export const ESTADO_COBRO_LABEL: Record<EstadoCobro, string> = {
+export const ESTADO_COBRO_LABEL: { [key: string]: string } = {
   pendiente: 'Pendiente', cobrado: 'Cobrado', parcial: 'Pago parcial', eximido: 'Eximido',
 }
 
-export const ESTADO_COBRO_COLOR: Record<EstadoCobro, string> = {
+export const ESTADO_COBRO_COLOR: { [key: string]: string } = {
   pendiente: 'bg-orange-100 text-orange-700',
   cobrado:   'bg-green-100 text-green-700',
   parcial:   'bg-blue-100 text-blue-700',
   eximido:   'bg-gray-100 text-gray-500',
 }
 
-export const ESTADO_SENIA_LABEL: Record<EstadoSenia, string> = {
+export const ESTADO_SENIA_LABEL: { [key: string]: string } = {
   cobrada: 'Cobrada', aplicada: 'Aplicada', retenida: 'Retenida', devuelta: 'Devuelta',
 }
 
-export const ESTADO_SENIA_COLOR: Record<EstadoSenia, string> = {
+export const ESTADO_SENIA_COLOR: { [key: string]: string } = {
   cobrada:  'bg-blue-100 text-blue-700',
   aplicada: 'bg-green-100 text-green-700',
   retenida: 'bg-orange-100 text-orange-700',
   devuelta: 'bg-gray-100 text-gray-500',
 }
 
-export const ESTADO_LIQ_LABEL: Record<EstadoLiquidacion, string> = {
+export const ESTADO_LIQ_LABEL: { [key: string]: string } = {
   borrador: 'Borrador', presentada: 'Presentada', pagada: 'Pagada',
   con_diferencias: 'Con diferencias', cancelada: 'Cancelada',
 }
 
-export const ESTADO_LIQ_COLOR: Record<EstadoLiquidacion, string> = {
+export const ESTADO_LIQ_COLOR: { [key: string]: string } = {
   borrador:         'bg-gray-100 text-gray-600',
   presentada:       'bg-blue-100 text-blue-700',
   pagada:           'bg-green-100 text-green-700',
@@ -252,13 +252,13 @@ export const ESTADO_LIQ_COLOR: Record<EstadoLiquidacion, string> = {
   cancelada:        'bg-red-100 text-red-600',
 }
 
-export const ESTADO_GASTO_COLOR: Record<EstadoGasto, string> = {
+export const ESTADO_GASTO_COLOR: { [key: string]: string } = {
   pagado:   'bg-green-100 text-green-700',
   pendiente:'bg-orange-100 text-orange-700',
   vencido:  'bg-red-100 text-red-700',
 }
 
-export const TIPO_GASTO_LABEL: Record<TipoGasto, string> = {
+export const TIPO_GASTO_LABEL: { [key: string]: string } = {
   fijo: 'Fijo', variable: 'Variable', extraordinario: 'Extraordinario',
 }
 
