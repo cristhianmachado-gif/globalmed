@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Plus, Pencil, Trash2, RefreshCw, AlertCircle, Filter } from 'lucide-react'
 import { Button, Modal, Input, Select, FormRow, Card, PageHeader, LoadingSpinner, EmptyState, SearchBar, ConfirmDialog } from '@/components/ui'
-import { formatMoney, ESTADO_GASTO_COLOR, TIPO_GASTO_LABEL, type EstadoGasto, type FormaPago } from '@/types/finanzas'
+import { formatMoney, ESTADO_GASTO_COLOR, type EstadoGasto, type FormaPago } from '@/types/finanzas'
 import { formatFecha } from '@/lib/utils'
 import { format, startOfMonth, endOfMonth, subMonths } from 'date-fns'
 import type { Gasto, CategoriaGasto } from '@/types/finanzas'
@@ -207,7 +207,7 @@ export default function GastosPage() {
                       <div className="w-2 h-2 rounded-full flex-shrink-0" style={{background:(g as any).categoria?.color||'#6c757d'}}/>
                       <span className="text-xs text-gray-700">{(g as any).categoria?.nombre}</span>
                     </div>
-                    <div className="text-[10px] text-gray-400 ml-3.5">{TIPO_GASTO_LABEL[((g as any).categoria?.tipo || 'variable') as TipoGasto]}</div>
+                    <div className="text-[10px] text-gray-400 ml-3.5">{(g as any).categoria?.tipo || 'variable'}</div>
                   </td>
                   <td className="px-4 py-3">
                     <div className="text-sm font-medium text-navy">{g.concepto}</div>
