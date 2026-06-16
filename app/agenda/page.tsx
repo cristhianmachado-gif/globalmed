@@ -87,7 +87,11 @@ export default function AgendaPage() {
   async function loadFechas() {
     const s = format(startOfMonth(currentMonth),'yyyy-MM-dd'), e = format(endOfMonth(currentMonth),'yyyy-MM-dd')
     const { data } = await supabase.from('turnos').select('fecha').eq('profesional_id',selectedProfId).gte('fecha',s).lte('fecha',e).neq('estado','cancelado')
-    if (data) setFechasConTurnos([...new Set(data.map((t:any)=>t.fecha))])
+    if (data) {
+      const fechas = data.map((t:any) => t.fecha)
+      const unicas = fechas.filter((f:string, i:number) => fechas.indexOf(f) === i)
+      setFechasConTurnos(unicas)
+    }
   }
 
   async function loadDia() {
