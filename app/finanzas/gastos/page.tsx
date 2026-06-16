@@ -172,7 +172,7 @@ export default function GastosPage() {
               </div>
               <div className="text-right">
                 <div className="text-sm font-bold text-navy">{formatMoney(g.monto)}</div>
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${ESTADO_GASTO_COLOR[g.estado]}`}>{g.estado}</span>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${ESTADO_GASTO_COLOR[g.estado as EstadoGasto]}`}>{g.estado}</span>
               </div>
             </div>
             <div className="flex gap-2 mt-2">
@@ -207,7 +207,7 @@ export default function GastosPage() {
                       <div className="w-2 h-2 rounded-full flex-shrink-0" style={{background:(g as any).categoria?.color||'#6c757d'}}/>
                       <span className="text-xs text-gray-700">{(g as any).categoria?.nombre}</span>
                     </div>
-                    <div className="text-[10px] text-gray-400 ml-3.5">{TIPO_GASTO_LABEL[(g as any).categoria?.tipo||'variable']}</div>
+                    <div className="text-[10px] text-gray-400 ml-3.5">{TIPO_GASTO_LABEL[((g as any).categoria?.tipo || 'variable') as TipoGasto]}</div>
                   </td>
                   <td className="px-4 py-3">
                     <div className="text-sm font-medium text-navy">{g.concepto}</div>
@@ -218,7 +218,7 @@ export default function GastosPage() {
                   <td className="px-4 py-3 text-xs text-gray-600 capitalize">{g.forma_pago?.replace('_',' ')}</td>
                   <td className="px-4 py-3 text-xs text-gray-500">{g.comprobante_nro||'—'}</td>
                   <td className="px-4 py-3">
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${ESTADO_GASTO_COLOR[g.estado]}`}>
+                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${ESTADO_GASTO_COLOR[g.estado as EstadoGasto]}`}>
                       {g.estado.charAt(0).toUpperCase()+g.estado.slice(1)}
                     </span>
                     {g.fecha_vencimiento && g.estado!=='pagado' && (
