@@ -198,7 +198,8 @@ export default function AgendaPage() {
   function renderGrilla() {
     const porHora: Record<string,any[]> = {}
     turnosDia.forEach(t=>{ const h=(t.hora||'').slice(0,5); if(!porHora[h])porHora[h]=[]; porHora[h].push(t) })
-    const todas = [...new Set([...slots,...Object.keys(porHora)])].sort()
+    const combined = slots.concat(Object.keys(porHora))
+    const todas = combined.filter((h:string, i:number) => combined.indexOf(h) === i).sort()
     if (!todas.length) return (
       <div className="text-center py-12 text-gray-400">
         <Clock size={28} className="mx-auto mb-2 opacity-30"/>
